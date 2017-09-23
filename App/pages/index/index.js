@@ -7,12 +7,26 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    longitude : 0,
+    latitude : 0
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
+    })
+  },
+  listenerBtnGetLocation: function () {
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        this.setData({
+          longitude : res.longitude,
+          latitude: res.latitude
+        })
+        console.log('location = '  +  res);
+      }
     })
   },
   onLoad: function () {
