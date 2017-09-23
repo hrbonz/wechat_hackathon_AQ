@@ -1,1 +1,16 @@
 /* pages/tidbitDetail/tidbitDetail.wxss */
+.tidbit-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.question {
+  color: red;
+}
+
+.answer {
+ padding-left: 10%;
+ padding-right: 10%;
+}
