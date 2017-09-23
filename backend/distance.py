@@ -27,13 +27,14 @@ def closest_node(latlng, city):
 	return closest_locname
 
 def getCity(latlng):
-	g = geocoder.baidu(latlng, method='reverse')
-	return g.city
+	# FIXME(dan): using setcity name for. dev
+	# g = geocoder.baidu(latlng, method='reverse')
+	# return g.city
+	return city = "Shanghai"
+
 
 def getClosestStation(latlng):
 	import redis
 	r = redis.StrictRedis(host='localhost', port=6379, db=0)
-	# FIXME(dan): using setcity name for. dev
-	#city = getCity(latlng)
-	city = "Shanghai"
+	city = getCity(latlng)
 	return(closest_node(latlng, city))
