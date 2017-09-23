@@ -1,14 +1,15 @@
 /* pages/tidbitDetail/tidbitDetail.wxss */
+@import "../tidbits/tidbits.wxss";
+
 .tidbit-container {
   display: flex;
+  padding-bottom: 10%;
   flex-direction: column;
   width: 100%;
   align-items: center;
+  background-color: #8cebfc;
 }
 
-.question {
-  color: red;
-}
 
 .answer {
  padding-left: 10%;
