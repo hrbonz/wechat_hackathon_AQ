@@ -9,7 +9,23 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     longitude : 0,
-    latitude : 0
+    latitude : 0,
+    buttonclass: 'mask-button',
+    buttonText : 'Mask On'
+  },
+  buttonClicked : function(e){
+    if (this.data.buttonclass == 'mask-button'){
+      
+      this.setData({
+        buttonclass: 'mask-button-red',
+        buttonText : 'Mask Off'
+      });
+    }else{
+      this.setData({
+        buttonclass: 'mask-button',
+        buttonText : 'Mask On'
+      });
+    }
   },
   //事件处理函数
   bindViewTap: function() {

@@ -21,12 +21,13 @@
 }
 
 .title {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   width: 100%;
   text-align: center;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 30px;
   font-family: sans-serif;
 }
 
@@ -53,6 +54,8 @@
 }
 
 .mask-button{
+  border-color: red;
+  border-width: 2px;
   display: flex;
   align-items: center; 
   justify-content: center;
@@ -68,4 +71,21 @@
   font-family: sans-serif;
 }
 
+.mask-button-red{
+  border-color: red;
+  border-width: 2px;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  margin-top: 100px;
+  background: red;
+  color: white;
+  border-radius: 100px;
+  height: 200px;
+  width: 200px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: sans-serif;
+}
 

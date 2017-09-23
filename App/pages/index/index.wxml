@@ -23,6 +23,6 @@
   </view>
 
 
-  <button class='mask-button'> Mask On</button>
+  <button class='{{buttonclass}}' bindtap='buttonClicked'>{{buttonText}}</button>
 
 </view>
