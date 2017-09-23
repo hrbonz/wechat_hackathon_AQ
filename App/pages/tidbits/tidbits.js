@@ -4,7 +4,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
     tidbits: [
       {
         id :1,
@@ -33,17 +32,16 @@ Page({
       },
     ]
   },
-  getColor: function () {
-    return '#000';
-    // return '#' + (Math.floor(Math.random() * 16777215).toString(16)).toString();
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //SET PAGE TITLE
     wx.setNavigationBarTitle({ title: 'Tidbits' });
   },
+  /**
+   * TAKES THE APP TO TIDBIT DETAIL PAGE
+   */
   goToDetailPage : function(e){
     console.log(e.target.id);
     var tidbit = {};

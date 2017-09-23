@@ -4,7 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -13,12 +12,18 @@ Page({
     buttonclass: 'mask-button',
     buttonText : 'Mask On'
   },
+  /**
+   * TIDBITS BUTTON CLICK ACTION
+   */
   tidbitsClicked : function(e){
     wx.navigateTo({
       url: '../tidbits/tidbits',
     })
   },
-  bindScan: function () {
+  /**
+   * OPENS THE QR SCANNER
+   */
+  openQRScanner: function () {
     console.log('scanner')
     wx.scanCode({
       success: (res) => {
@@ -26,6 +31,9 @@ Page({
       }
     })
   },
+  /**
+   * CLICK ACTION FOR MASK BUTTON
+   */
   buttonClicked : function(e){
     if (this.data.buttonclass == 'mask-button'){
       
@@ -40,12 +48,6 @@ Page({
       });
     }
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   listenerBtnGetLocation: function () {
     wx.getLocation({
       type: 'wgs84',
@@ -55,6 +57,19 @@ Page({
           latitude: res.latitude
         })
         console.log('location = '  +  res);
+      }
+    })
+  },
+  getSystemInfo : function(){
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.model)
+        console.log(res.pixelRatio)
+        console.log(res.windowWidth)
+        console.log(res.windowHeight)
+        console.log(res.language)
+        console.log(res.version)
+        console.log(res.platform)
       }
     })
   },
@@ -87,6 +102,9 @@ Page({
       })
     }
   },
+  /**
+   * GET USER INFORMATION
+   */
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

@@ -9,7 +9,6 @@
   justify-content: center;
 }
 
-
 .question {
   padding: 5px;
   font-size: 20px;

@@ -2,7 +2,7 @@
   <text class='title'> Welcome to Shanghai</text>
 
 
-  <view class='aqi-container'>
+  <view animation="{{animationData}}" class='aqi-container'>
     <text class='aqi'>10.7</text> 
     <text class='aqi-unit'> μg/m³</text>
   </view>

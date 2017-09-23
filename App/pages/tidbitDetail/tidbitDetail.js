@@ -16,8 +16,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // SET PAGE TITLE
     wx.setNavigationBarTitle({ title: 'Detail' });
-    var id = JSON.parse(options.query);
+    // GET TIDBIT DETAIL FROM LAST PAGE
+    var id = options.query;
 
     
   },
