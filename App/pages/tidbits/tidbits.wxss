@@ -1,0 +1,20 @@
+.cell{
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  background: whitesmoke;
+  padding: 6px;
+  height: 80px;
+  align-items: center; 
+  justify-content: center;
+}
+
+
+.question {
+  padding: 5px;
+  font-size: 20px;
+  color: black;
+  align-items: top;
+  font-weight: 700;
+  text-align: center;
+}

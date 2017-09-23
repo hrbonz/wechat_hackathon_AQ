@@ -1,1 +1,18 @@
-/* pages/tidbitDetail/tidbitDetail.wxss */
+.container{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start
+}
+
+.question {
+  width: 100%;
+  font-size: 20px;
+  color: black;
+  text-align: left;
+  font-weight: 700;
+}
+
+.answer{
+  margin-top: 5px;
+}
