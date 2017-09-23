@@ -26,14 +26,13 @@ Page({
       }
     })
   },
-  buttonClicked : function(e){
-    if (this.data.buttonclass == 'mask-button'){
-      
+  openTidbit: function(e){
+    if (this.data.buttonclass == 'mask-button') {
       this.setData({
         buttonclass: 'mask-button-red',
         buttonText : 'Mask Off'
       });
-    }else{
+    } else {
       this.setData({
         buttonclass: 'mask-button',
         buttonText : 'Mask On'

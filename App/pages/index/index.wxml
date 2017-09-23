@@ -1,9 +1,10 @@
-<view class='main-container container'>
+<view class='main-container'>
 
   <view class="city-container">
-    <text class='city-text'>you're currently breathing in...</text>
-    <text class='city-name'>Shanghai</text> 
-    <!-- <text class='h1'>{{ main.city }}</text> -->
+    <view class="city-text">
+      <text class='city-currently'>you're currently breathing in...</text>
+      <text class='city-name'>Shanghai</text>
+    </view>
   </view>
 
   <view class='aqi-container'>
@@ -11,9 +12,8 @@
     <text class='aqi-unit'>μg/m³</text>
   </view>
 
+  <view class='{{ buttonclass }}' bindtap='buttonClicked'>{{buttonText}}</view>
 
-  <button class='{{buttonclass}}' bindtap='buttonClicked'>{{buttonText}}</button>
-
-  <button class='tidbits' bindtap='tidbitsClicked'>Tidbits</button>
+  <view class='tidbits' bindtap='tidbitsClicked'>i</view>
 
 </view>

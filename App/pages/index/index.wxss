@@ -8,35 +8,47 @@ view, text, image, button {
 
 /* -------- */
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
 /* City Headline */
 .city-container {
-  margin: 25px auto 0 auto;
+  margin: 0 0 25px 0;
   display: flex;
   flex-direction: column;
   width: 100%;
-  text-align: left;
   font-family: sans-serif;
   line-height: 1.25;
 }
+.city-text {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
 
-.city-text, .city-name {
+.city-currently, .city-name {
+  display: inline-block;
   margin: 0;
 }
-.city-text {
+.city-currently {
   font-size: 16px;
   font-weight: 300;
   font-style: italic;
 }
 .city-name {
-  font-size: 58px;
+  font-size: 50px;
   font-weight: 300;
   font-style: italic;
   line-height: 1;
 }
 
-
 .aqi-container {
-  margin: 20px 0;
+  margin: 10px 0 20px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -60,7 +72,7 @@ view, text, image, button {
   color: #787979;
 }
 
-.mask-button{
+.mask-button {
   display: flex;
   align-items: center; 
   justify-content: center;
@@ -71,35 +83,29 @@ view, text, image, button {
   height: 125px;
   width: 125px;
   text-align: center;
-  font-weight: 700;
-  font-size: 20px;
+  box-shadow: 4px 4px 0px 0px #c32035;
+  transition: all .1s ease; 
+}
+.mask-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #c32035;
 }
 
-.mask-button-red{
-  border-color: red;
-  border-width: 2px;
-  display: flex;
-  align-items: center; 
-  justify-content: center;
-  margin-top: 100px;
-  background: red;
-  color: white;
-  border-radius: 100px;
-  height: 200px;
-  width: 200px;
+.tidbits {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  border: solid 1px #000;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  color: #000;
+  font-family: 'Times New Roman', Times, serif;
   text-align: center;
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: bold;
+  transition: all .2s ease;
 }
-
-.tidbits{
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 5px;
-  width: 200px;
-  background: white;
-  color: green;
-  margin-top: 15px;
-  
-
+.tipbits:active {
+  background: #000;
+  color: #fff;
 }
