@@ -25,7 +25,7 @@ pip-tools==1.9.0
 pygments==2.2.0           # via httpie
 pytz==2017.2
 redis==2.10.6
-requests==2.18.4          # via httpie
+requests==2.18.4
 six==1.11.0               # via pip-tools
 urllib3==1.22             # via requests
 werkzeug==0.12.2          # via flask
