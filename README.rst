@@ -11,5 +11,14 @@ Development
 Backend
 -------
 
-$ mkvirtualenv --system-site-package maskapp
-$ pip install -r requirements.txt
+.. code:: sh
+
+    $ mkvirtualenv --system-site-package maskapp
+    $ pip install -r requirements-dev.txt
+
+Run test API
+
+.. code:: sh
+
+    $ cd backend
+    $ python rundevapi.py
