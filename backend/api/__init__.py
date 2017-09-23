@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
 
-from api.rediswrapper import redis
-
 __author__ = 'Stefan Berder <stefan@measureofquality.com>'
 __contact__ = 'code+mask@measureofquality.com'
 __version__ = "0.0.1"
@@ -24,6 +22,8 @@ from api.outdoor import outdoor_bp
 app.register_blueprint(geo_bp, url_prefix="/geo")
 app.register_blueprint(outdoor_bp, url_prefix="/outdoor")
 
+=======
+>>>>>>> bakend: base flask app
 
 if __name__ == "__main__":
     app.run('0.0.0.0', port=app.config['DEBUG_PORT'])
