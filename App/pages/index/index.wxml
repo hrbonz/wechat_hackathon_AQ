@@ -1,9 +1,15 @@
 <view class='main-container'>
 
   <view class="city-container">
-    <view class="city-text">
-      <text class='city-currently'>you're currently breathing in...</text>
-      <text class='city-name'>Shanghai</text>
+    <view class="city-text {{ maskState }}">
+      <view class="tagline-text">
+        <text class='text-currently'>you're currently breathing in...</text>
+        <text class='text-couldbe'>you could be breathing...</text>
+      </view>
+      <view class="headline-text">
+        <text class="city-currently">{{ currentCity }}</text>
+        <text class="city-couldbe">{{ couldBeCity }}</text>
+      </view>
     </view>
   </view>
 
@@ -12,8 +18,11 @@
     <text class='aqi-unit'>μg/m³</text>
   </view>
 
-  <view class='{{ buttonclass }}' bindtap='buttonClicked'>{{buttonText}}</view>
+  <view class='mask-button' bindtap='putOnMask'>{{buttonText}}</view>
+  <view class='tidbits' bindtap='openTidbits'>i</view>
 
-  <view class='tidbits' bindtap='tidbitsClicked'>i</view>
-
+  <view class="backdrop" style="background:{{ backgroundColor }};"><view class="gradient-shade"></view></view>
+  <view class="city-scape">
+    
+  </view>
 </view>

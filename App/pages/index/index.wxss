@@ -18,7 +18,7 @@ view, text, image, button {
 
 /* City Headline */
 .city-container {
-  margin: 0 0 25px 0;
+  margin: 0 0 10px 0;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -28,35 +28,78 @@ view, text, image, button {
 .city-text {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 auto;
 }
 
-.city-currently, .city-name {
-  display: inline-block;
-  margin: 0;
+.tagline-text, .headline-text {
+  position: relative;
 }
-.city-currently {
+.tagline-text {
+  height: 20px;
+}
+.headline-text {
+  height: 50px;
+}
+
+.text-couldbe, .city-couldbe {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.text-currently, .city-currently {
+  position: relative;
+}
+
+.text-currently,
+.text-couldbe {
   font-size: 16px;
   font-weight: 300;
   font-style: italic;
 }
-.city-name {
+
+.mask-on .text-currently, 
+.mask-off .text-couldbe {
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.mask-on .text-couldbe, 
+.mask-off .text-currently {
+  opacity: 1;
+  transition: opacity .3s ease .2s;
+}
+
+.city-currently,
+.city-couldbe {
   font-size: 50px;
   font-weight: 300;
   font-style: italic;
   line-height: 1;
+  transition: transform .4s ease;
+}
+
+.mask-off .city-currently,
+.mask-on .city-couldbe {
+  transform: translateX(0);
+}
+.mask-on .city-currently {
+  -webkit-transform: translate( 0, 50%);
+  transform: translate( 0, 50%);
+}
+.mask-off .city-couldbe {
+  transform: translateX( 200% );
 }
 
 .aqi-container {
-  margin: 10px 0 20px 0;
+  margin: 0 0 15px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   border: solid 2px #ff5a5a;
   padding: 20px;
-  height: 125px;
-  width: 125px;
+  height: 144px;
+  width: 140px;
   border-radius: 50%;
 }
 
@@ -69,7 +112,7 @@ view, text, image, button {
 .aqi-unit {
   font-weight: 300;
   font-size: 15px;
-  color: #787979;
+  color: #666;
 }
 
 .mask-button {
@@ -80,8 +123,8 @@ view, text, image, button {
   background: #ff5a5a;
   color: white;
   border-radius: 100px;
-  height: 125px;
-  width: 125px;
+  height: 140px;
+  width: 140px;
   text-align: center;
   box-shadow: 4px 4px 0px 0px #c32035;
   transition: all .1s ease; 
@@ -108,4 +151,24 @@ view, text, image, button {
 .tipbits:active {
   background: #000;
   color: #fff;
+}
+
+.backdrop {
+  position: absolute;
+  z-index: -1;
+  background: #d8a272;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  transition: background 1s ease;
+}
+.backdrop .gradient-shade {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 110px;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient( to top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 52%,rgba(255,255,255,0.8) 52%,rgba(255,255,255,0.8) 64%, rgba(255,255,255,0.6) 64%, rgba(255,255,255,0.6) 76%, rgba(255,255,255,0.4) 76%,rgba(255,255,255,0.4) 88%, rgba(255,255,255,0.2) 88%, rgba(255,255,255,0.2) 100%);
 }
