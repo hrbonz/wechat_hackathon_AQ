@@ -7,7 +7,10 @@
 --index-url https://pypi.priv.measureofquality.com/gams/prod/+simple/
 
 click==6.7                # via flask
+docutils==0.14            # via geohash
 flask==0.12.2
+geohash==1.0
+geopy==1.11.0
 gunicorn==19.7.1
 itsdangerous==0.24        # via flask
 jinja2==2.9.6             # via flask
