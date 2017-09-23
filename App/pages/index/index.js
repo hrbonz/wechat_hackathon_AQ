@@ -13,6 +13,19 @@ Page({
     buttonclass: 'mask-button',
     buttonText : 'Mask On'
   },
+  tidbitsClicked : function(e){
+    wx.navigateTo({
+      url: '../tidbits/tidbits',
+    })
+  },
+  bindScan: function () {
+    console.log('scanner')
+    wx.scanCode({
+      success: (res) => {
+        console.log(res)
+      }
+    })
+  },
   buttonClicked : function(e){
     if (this.data.buttonclass == 'mask-button'){
       
@@ -46,6 +59,7 @@ Page({
     })
   },
   onLoad: function () {
+    wx.setNavigationBarTitle({ title: 'Air Quality MP' });
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

@@ -1,0 +1,10 @@
+<view >
+
+  
+    <view class='cell' >
+      <text  id='{{item.id}}'  class="question">{{tidbit.question}}</text>
+      <text  id='{{item.id}}'  class="answer">{{tidbit.answer}}</text>
+    </view>     
+
+
+</view>

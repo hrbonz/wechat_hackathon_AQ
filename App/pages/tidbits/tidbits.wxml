@@ -1,0 +1,10 @@
+<view >
+
+  <view wx:for="{{tidbits}}">
+    <view class='cell' bindtap='goToDetailPage'>
+      <text  id='{{item.id}}'  class="question">{{item.question}}</text>
+    </view>     
+  </view> 
+
+
+</view>
