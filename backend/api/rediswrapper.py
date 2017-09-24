@@ -17,6 +17,9 @@ class RedisWrapper(object):
     def set(self, key, value):
         return self._redis.set(key, value)
 
+    def hget(self, key, field):
+        return self._redis.hget(key, field)
+
     def zrange(self, key, start, stop):
         return self._redis.zrange(key, start, stop)
 
