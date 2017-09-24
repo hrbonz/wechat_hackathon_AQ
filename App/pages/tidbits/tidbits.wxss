@@ -9,6 +9,7 @@
   text-align: center;
   min-height: 100px;
   min-width: 260px;
+  max-width: 100%;
   padding-top: 0%;
   padding-bottom: 0%;
   padding-left: 5%;
