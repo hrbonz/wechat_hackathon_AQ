@@ -1,7 +1,7 @@
 <view class='main-view' >
 
   <view wx:for="{{tidbits}}" class='tidbit-item'>
-    <view class='button-style' bindtap='goToDetailPage'>
+    <view id='{{item.id}}' class='button-style' bindtap='goToDetailPage'>
       <text  id='{{item.id}}'  class="question">{{item.question}}</text>
     </view>     
   </view> 
