@@ -1,5 +1,6 @@
-page {
-  line-height: 1.6;
+page,
+text {
+  line-height: 1.25;
   font-family: -apple-system-font, "Helvetica Neue", sans-serif;
 }
 icon {

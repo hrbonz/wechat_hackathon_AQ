@@ -48,15 +48,17 @@ Page({
       });
     }
   },
-  listenerBtnGetLocation: function () {
+  getUserLocation: function () {
+    var ctx = this;
     wx.getLocation({
       type: 'wgs84',
       success: function (res) {
-        this.setData({
+        ctx.setData({
           longitude : res.longitude,
           latitude: res.latitude
         })
         console.log('location = '  +  res);
+        ctx.getLocationInformation();
       }
     })
   },
@@ -74,6 +76,7 @@ Page({
     })
   },
   onLoad: function () {
+    this.getUserLocation();
     wx.setNavigationBarTitle({ title: 'Air Quality MP' });
     if (app.globalData.userInfo) {
       this.setData({
@@ -112,5 +115,40 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+
+  getAQI : function (){
+
+    var uuid = '';
+    var url = 'https://api.measureofquality.com/v2/okq/' + uuid + '/records/latest';
+    wx.request({
+      url: url,
+      header: {
+        'content-type': 'application/json' ,
+        'api': 'caphs7mkw7d5kymgg75mvdr28c52kqxgr94vhrq3xmklmgf5z16b86njtek7j5jjyu4j9mikkioh'
+      },
+      success : function(res){
+
+      },
+      fail : function(err){
+
+      }
+    })
+    
+  },
+
+  getLocationInformation : function () {
+    var url = "http://mask.measureofquality.com/location?long=" + this.data.longitude + "?lat=" +    this.data.latitude;
+    console.log(url);
+    wx.request({
+      url: url,
+      success : function(res){
+
+      },
+      fail : function(err){
+
+      }
+    })
   }
+  
 })

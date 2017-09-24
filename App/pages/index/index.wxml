@@ -1,12 +1,15 @@
-<view class='main-container'>
-  <text class='title'> Welcome to Shanghai</text>
+<view class='main-container container'>
 
-
-  <view animation="{{animationData}}" class='aqi-container'>
-    <text class='aqi'>10.7</text> 
-    <text class='aqi-unit'> μg/m³</text>
+  <view class="city-container">
+    <text class='city-text'>you're currently breathing in...</text>
+    <text class='city-name'>Shanghai</text> 
+    <!-- <text class='h1'>{{ main.city }}</text> -->
   </view>
 
+  <view class='aqi-container'>
+    <text class='aqi'>300</text> 
+    <text class='aqi-unit'>μg/m³</text>
+  </view>
 
   <button class='{{buttonclass}}' bindtap='buttonClicked'>{{buttonText}}</button>
 
