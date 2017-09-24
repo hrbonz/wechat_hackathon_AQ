@@ -1,4 +1,6 @@
 Flask==0.12.2
+future==0.16.0
+geocoder==1.32.1
 Geohash==1.0
 geopy==1.11.0
 gunicorn==19.7.1

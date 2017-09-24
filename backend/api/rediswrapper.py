@@ -17,5 +17,10 @@ class RedisWrapper(object):
     def set(self, key, value):
         return self._redis.set(key, value)
 
+    def zrange(self, key, start, stop):
+        return self._redis.zrange(key, start, stop)
+
+    def geohash(self, key, member):
+        return self._redis.geohash(key, member)
 
 redis = RedisWrapper()
