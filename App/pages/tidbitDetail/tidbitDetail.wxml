@@ -1,3 +1,4 @@
+
 <view class="tidbit-container">
     <text id='{{item.id}}' class="button-style">{{tidbit.question}}</text>
     <text id='{{item.id}}' class="button-style">{{tidbit.answer}}</text>

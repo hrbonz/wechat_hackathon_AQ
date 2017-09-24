@@ -1,70 +1,78 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+/* Global Elements */
+
+view, text, image, button {
+  box-sizing: border-box;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+/* -------- */
+
+/* City Headline */
+.city-container {
+  margin: 25px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  font-family: sans-serif;
+  line-height: 1.25;
+}
+
+.city-text, .city-name {
+  margin: 0;
+}
+.city-text {
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+}
+.city-name {
+  font-size: 58px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+}
+
+
+  .aqi-container { 
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  border: solid 2px #ff5a5a;
+  padding: 20px;
+  height: 125px;
+  width: 125px;
   border-radius: 50%;
 }
 
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.title {
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  text-align: center;
-  font-weight: 700;
-  font-size: 30px;
-  font-family: sans-serif;
-}
-
-.aqi-container{
-  width: 100%;
-  margin-top: 100px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 40px;
-}
-
 .aqi {
-  font-weight: 700;
-  font-size: 35px;
-  font-family: sans-serif;
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 1;
 }
 
 .aqi-unit {
-  align-self: flex-end;
-  font-weight: 700;
+  font-weight: 300;
   font-size: 15px;
-  font-family: sans-serif;
+  color: #787979;
 }
 
 .mask-button{
-  border-color: red;
-  border-width: 2px;
   display: flex;
   align-items: center; 
   justify-content: center;
-  margin-top: 100px;
-  background: green;
+  margin: 25px 0;
+  background: #ff5a5a;
   color: white;
   border-radius: 100px;
-  height: 200px;
-  width: 200px;
+  height: 125px;
+  width: 125px;
   text-align: center;
   font-weight: 700;
   font-size: 20px;
-  font-family: sans-serif;
 }
 
 .mask-button-red{
@@ -82,7 +90,6 @@
   text-align: center;
   font-weight: 700;
   font-size: 20px;
-  font-family: sans-serif;
 }
 
 .tidbits{

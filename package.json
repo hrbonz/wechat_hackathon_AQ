@@ -1,0 +1,23 @@
+{
+  "name": "wechat_hackathon",
+  "version": "0.0.1",
+  "description": "blah",
+  "main": "index.js",
+  "dependencies": {
+    "progressbar.js": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrbonz/wechat_hackathon_AQ.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hrbonz/wechat_hackathon_AQ/issues"
+  },
+  "homepage": "https://github.com/hrbonz/wechat_hackathon_AQ#readme"
+}
