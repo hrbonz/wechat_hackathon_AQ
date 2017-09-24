@@ -74,7 +74,7 @@ Page({
     })
   },
   onLoad: function () {
-    wx.setNavigationBarTitle({ title: 'Air Quality MP' });
+    wx.setNavigationBarTitle({ title: 'FaceHugger' });
     
     if (app.globalData.userInfo) {
       this.setData({
@@ -120,6 +120,9 @@ Page({
     });
   },
   listenerBtnGetLocation: function () {
+    wx.showLoading({
+      title: 'Loading',
+    })
     var ctx = this;
     wx.getLocation({
       type: 'wgs84',
@@ -260,6 +263,7 @@ Page({
           borderColor: borderColor,
           backgroundColor: backgroundColor
         })
+        wx.hideLoading();
       },
       fail: function (err) {
 

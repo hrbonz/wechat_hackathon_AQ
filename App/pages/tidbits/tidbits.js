@@ -18,6 +18,9 @@ Page({
   },
 
   getTidbits: function () {
+    wx.showLoading({
+      title: 'Loading',
+    })
     var url = 'https://mask.measureofquality.com/tidbits';
     console.log("calling tibits list api = " +  url);
     var ctx = this;
@@ -28,6 +31,7 @@ Page({
         ctx.setData({
           tidbits: res.data
         });
+        wx.hideLoading();
       },
       fail: function (err) {
         wx.showModal({
@@ -36,6 +40,7 @@ Page({
           showCancel: false,
           success: function (res) { }
         });
+        wx.hideLoading();
       }
     })
   }
