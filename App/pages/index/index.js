@@ -10,10 +10,15 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     longitude : 0,
     latitude : 0,
-    buttonclass: 'mask-button',
-    buttonText : 'Mask On'
+    currentCity: '',
+    couldBeCity: '',
+    maskState: 'mask-off',
+    backgroundColor: '#999',
+    getBackgroundColor: function(){
+      return '#999';
+    }
   },
-  tidbitsClicked : function(e){
+  openTidbits: function(e){
     wx.navigateTo({
       url: '../tidbits/tidbits',
     })
@@ -26,17 +31,17 @@ Page({
       }
     })
   },
-  buttonClicked : function(e){
-    if (this.data.buttonclass == 'mask-button'){
-      
-      this.setData({
-        buttonclass: 'mask-button-red',
-        buttonText : 'Mask Off'
+  putOnMask: function(e){
+    console.log(this.data.maskState);
+    if ( this.data.maskState == 'mask-off' ) {
+      this.setData({ 
+        maskState: 'mask-on',
+        backgroundColor: '#8cebfc'
       });
-    }else{
+    } else {
       this.setData({
-        buttonclass: 'mask-button',
-        buttonText : 'Mask On'
+        maskState: 'mask-off',
+        backgroundColor: '#999'
       });
     }
   },
@@ -86,6 +91,12 @@ Page({
         }
       })
     }
+
+    // To Be replaced with Backend
+    this.setData({
+      currentCity: 'Shanghai',
+      couldBeCity: 'Honolulu'
+    });
   },
 
   getUserInfo: function(e) {
