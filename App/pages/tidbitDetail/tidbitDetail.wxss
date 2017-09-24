@@ -16,3 +16,7 @@
  padding-right: 10%;
 
 }
+
+.button-style.answer-box {
+  text-align: left;
+}
