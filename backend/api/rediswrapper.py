@@ -32,5 +32,8 @@ class RedisWrapper(object):
     def lindex(self, key, value):
         return self._redis.lindex(key, value)
 
+    def llen(self, key):
+        return self._redis.llen(key)
+
 
 redis = RedisWrapper()

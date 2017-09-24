@@ -21,3 +21,9 @@ def tidbits_all():
     	index += 1
     	payload.append(t)
     return jsonify(payload), 200
+
+@tidbits_bp.route("/<id>", methods=["GET"])
+def tidbits_id(id):
+	t = redis.lindex("tidbits", id)
+	return jsonify(json.loads(t)), 200
+
