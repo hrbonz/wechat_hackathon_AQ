@@ -31,7 +31,7 @@ def tidbits_id(id):
 @tidbits_bp.route("/random", methods=["GET"])
 def tidbits_random():
 	payload = []
-	index = randint(0,redis.llen("tidbits") - 1)
+	index = randint(0, redis.llen("tidbits") - 1)
 	t = json.loads(redis.lindex("tidbits", index))
 	payload.append(t)
 	return jsonify(payload), 200
