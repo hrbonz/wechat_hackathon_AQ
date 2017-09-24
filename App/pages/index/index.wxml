@@ -18,10 +18,16 @@
     <text class='aqi-unit'>μg/m³</text>
   </view>
 
-  <view class='mask-button' bindtap='putOnMask'>
+ <view class="tidbit-panel">
+    <view class="button-style" bindtap="openTidbits">
+      <text class="question">Are you going to die?</text>
+    </view>
+  </view>
+  <view class="mask-button" bindtap="putOnMask">
     <image src="../../assets/images/mask-icon.png" />
   </view>
-  <view class='tidbits-btn' bindtap='openTidbits'>i</view>
+
+  <view class="tidbits-btn" bindtap="openTidbits">i</view>
 
   <view class="backdrop" style="background:{{ backgroundColor }};">
     <view class="gradient-shade"></view>

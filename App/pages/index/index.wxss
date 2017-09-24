@@ -14,6 +14,7 @@ view, text, image, button {
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
+  overflow: hidden;
 }
 
 /* City Headline */
@@ -127,32 +128,70 @@ view, text, image, button {
   width: 140px;
   text-align: center;
   box-shadow: 4px 4px 0px 0px #c32035;
-  transition: all .1s ease; 
+  transition: all .2s ease; 
 }
 .mask-button image {
   height: 140px;
   width: 140px;
   padding: 25px 22px 25px 28px;
 }
-
 .mask-button:active {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0px 0px #c32035;
+}
+
+.mask-on .mask-button {
+  transition: all .3s ease;
+  transform: translateY( 400px );
+}
+
+.tidbit-panel {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.tidbit-panel .button-style {
+  position: absolute;
+  bottom: 110px;
+  background-color: white;
+  border: 1px solid #666;
+  text-align: center;
+  line-height: 80px;
+  padding: 3% 5%;
+  border-radius: 35px;
+  min-height: 80px;
+  font-weight: 500;
+  width: 100%;
+  transition: transform .3s ease .4s;
+}
+
+ .mask-on .tidbit-panel {
+  z-index: 0;
+} 
+.mask-off .tidbit-panel .button-style {
+  transform: translateY(300px);
 }
 
 .tidbits-btn {
   position: absolute;
   bottom: 15px;
   right: 15px;
-  border: solid 1px #000;
+  border: solid 2px #fff;
   border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  color: #000;
+  height: 30px;
+  width: 30px;
+  color: #fff;
   font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
   text-align: center;
   font-weight: bold;
   transition: all .2s ease;
+  background: rgba(0,0,0,0.15);
 }
 .tipbits-btn:active {
   background: #000;
@@ -161,7 +200,7 @@ view, text, image, button {
 
 .backdrop {
   position: absolute;
-  z-index: -1;
+  z-index: -3;
   background: #d8a272;
   left: 0;
   top: 0;
@@ -171,7 +210,7 @@ view, text, image, button {
 }
 .backdrop .gradient-shade {
   position: absolute;
-  z-index: 0;
+  z-index: -3;
   left: 0;
   top: 110px;
   bottom: 0;
@@ -181,7 +220,7 @@ view, text, image, button {
 
 .cityscape {
   position: absolute;
-  z-index: -1;
+  z-index: -2;
   left: 0;
   bottom: 0;
   top: 0;
