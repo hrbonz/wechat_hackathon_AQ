@@ -1,0 +1,4 @@
+-r requirements.in
+bumpr==0.2.1
+httpie==0.9.9
+pip-tools==1.9.0
