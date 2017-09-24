@@ -1,7 +1,7 @@
 
 <view class="tidbit-item">
     <text id='{{item.id}}' class="button-style">{{tidbit.question}}</text>
-    <text id='{{item.id}}' class="button-style answer-box" >{{tidbit.answer}}.format()</text>
+    <text id='{{item.id}}' class="button-style answer-box" >{{tidbit.answer}}</text>
 
     <view class="backdrop" style="background:{{ backgroundColor }};"><view class="gradient-shade"></view></view>
 </view>

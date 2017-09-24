@@ -36,7 +36,7 @@ Page({
       fail: function (err) {
         wx.showModal({
           title: 'Error',
-          content: 'Something',
+          content: err,
           showCancel: false,
           success: function (res) { }
         });
