@@ -2,6 +2,8 @@
 //获取应用实例
 const app = getApp()
 
+var borderColor, backgroundColor, currentLocation, currentAqi, couldbeAqi;
+
 Page({
   data: {
     motto: 'Hello World',
@@ -12,11 +14,13 @@ Page({
     latitude : 0,
     currentCity: '',
     couldBeCity: '',
+    aqi: {},
+    location: {
+      pm25: 0
+    },
     maskState: 'mask-off',
-    backgroundColor: '#999',
-    getBackgroundColor: function(){
-      return '#999';
-    }
+    backgroundColor: '#999999',
+    borderColor: '#999999'
   },
   openTidbits: function(e){
     wx.navigateTo({
@@ -32,16 +36,23 @@ Page({
     })
   },
   putOnMask: function(e){
-    console.log(this.data.maskState);
     if ( this.data.maskState == 'mask-off' ) {
       this.setData({ 
         maskState: 'mask-on',
-        backgroundColor: '#8cebfc'
+        backgroundColor: '#8cebfc',
+        border: borderColor,
+        aqi: couldbeAqi,
+        location: {
+          en: 'Honolulu'
+        }
       });
     } else {
       this.setData({
         maskState: 'mask-off',
-        backgroundColor: '#999'
+        backgroundColor: backgroundColor,
+        borderColor: borderColor,
+        aqi: currentAqi,
+        location: currentLocation
       });
     }
   },
@@ -92,11 +103,32 @@ Page({
       })
     }
 
+    // GET SET borderColor and backgroundColor
+    var aqi = this.data.aqi.pm25;
+    couldbeApi = {
+      pm25: ( this.data.aqi.pm25 * 0.9 )
+    };
+  
+    if ( aqi < 15.4 ) borderColor = 'greenyellow';
+    else if ( aqi < 40.4 ) borderColor = 'yellow';
+    else if ( aqi < 65.4 ) borderColor = 'orange';
+    else if ( api < 150.4 ) borderColor = '#ff5858';
+    else if ( api < 251 ) borderColor = 'purple';
+    else borderColor = 'maroon';
+
+    if (aqi < 15.4) backgroundColor = '#8cebfc';
+    else if (aqi < 35) backgroundColor = '#93d8e4';
+    else if (aqi < 100) backgroundColor = '#b4ced3';
+    else backgroundColor = '#d4d4d4';
+
     // To Be replaced with Backend
     this.setData({
+      borderColor: borderColor,
+      backgroundColor: backgroundColor,
       currentCity: 'Shanghai',
       couldBeCity: 'Honolulu'
     });
+    
   },
 
   getUserInfo: function(e) {
@@ -106,5 +138,10 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  onHide: function() {
+    this.setData({
+      maskState: 'mask-off'
+    });
   }
 })
