@@ -10,7 +10,9 @@ Page({
     longitude : 0,
     latitude : 0,
     buttonclass: 'mask-button',
-    buttonText : 'Mask On'
+    buttonText : 'Mask On',
+    aqi : {},
+    location : {}
   },
   /**
    * TIDBITS BUTTON CLICK ACTION
@@ -57,8 +59,8 @@ Page({
           longitude : res.longitude,
           latitude: res.latitude
         })
-        console.log('location = '  +  res);
-        ctx.getLocationInformation();
+        console.log('User location  = '  +  res);
+        ctx.getClosestStation();
       }
     })
   },
@@ -116,39 +118,100 @@ Page({
       hasUserInfo: true
     })
   },
-
-  getAQI : function (){
-
-    var uuid = '';
-    var url = 'https://api.measureofquality.com/v2/okq/' + uuid + '/records/latest';
+  
+  
+  /**
+   * THIS METHOD WILL CALL THE SERVER TO GET THE DATA FOR NEAREST STATION .
+   * THE RESPONSE IS SUPPOSE TO LOOK SOMETHING LIKE THIS :
+   * {
+        "closest": "jinganjiancezhan",
+        "details_uri": "/outdoor/station/shanghai/jinganjiancezhan",
+        "distance": 2.383912763469309,
+        "pm25_uri": "/outdoor/station/shanghai/jinganjiancezhan/pm25"
+      }
+   */
+  getClosestStation : function () {
+    var ctx = this;
+    var url = "http://mask.measureofquality.com/outdoor/closest?long=" + this.data.longitude + "?lat=" +    this.data.latitude;
+    console.log('Calling getClosestStation method with url = ' + url);
     wx.request({
       url: url,
-      header: {
-        'content-type': 'application/json' ,
-        'api': 'caphs7mkw7d5kymgg75mvdr28c52kqxgr94vhrq3xmklmgf5z16b86njtek7j5jjyu4j9mikkioh'
-      },
       success : function(res){
-
+        ctx.getStationInfo(res.details_uri);
+        ctx.getAQI(res.pm25_uri);
       },
       fail : function(err){
 
       }
     })
-    
+  },
+ 
+ 
+ 
+  /**
+   * THIS METHOD WILL CALL THE SERVER TO GET THE NAME FOR THE STATION . THE URL COMES FROM THE  getClosestStaion METHOD ABOVE
+   * THE RESPONSE IS SUPPOSE TO LOOK SOMETHING LIKE THIS :
+   * {
+        "lat": "31.221",
+        "long": "121.4448",
+        "name": {
+            "cn": "静安监测站",
+            "en": "Jing'an"
+        }
+      }
+      WE ONLY NEED THE NAME OBJECT HERE
+   */
+  getStationInfo: function (url) {
+    console.log('Calling getStationInfo method with url = ' + url);
+    var ctx: this;
+    wx.request({
+      url: url,
+      success: function (res) {
+        ctx.setData({
+          location: res.name
+        })
+      },
+      fail: function (err) {
+
+      }
+    })
+  },
+ 
+  
+  
+   /**
+   * THIS METHOD WILL CALL THE SERVER TO GET AQI DATA FOR THE STATION . THE URL COMES FROM getClosestStaion METHOD ABOVE
+   * THE RESPONSE IS SUPPOSE TO LOOK SOMETHING LIKE THIS :
+   * {
+        "fields": {
+            "co": "0.9",
+            "no2": "45.0",
+            "o3_1h": "71.0",
+            "o3_8h": "58.0",
+            "pm10": null,
+            "pm25": "13.0",
+            "so2": "8.0"
+        },
+        "ts": "2017-09-24T03:54:00+00:00",
+        "uuid": "pm25in:cn:shanghai:jinganjiancezhan"
+      }
+   */
+  getAQI: function (url) {
+    var ctx : this;
+    console.log('Calling getAQI method with url = ' + url);
+    wx.request({
+      url: url,
+      success: function (res) {
+        ctx.setData({
+          aqi: res.fields
+        })
+      },
+      fail: function (err) {
+
+      }
+    })
+
   },
 
-  getLocationInformation : function () {
-    var url = "http://mask.measureofquality.com/location?long=" + this.data.longitude + "?lat=" +    this.data.latitude;
-    console.log(url);
-    wx.request({
-      url: url,
-      success : function(res){
-
-      },
-      fail : function(err){
-
-      }
-    })
-  }
   
 })

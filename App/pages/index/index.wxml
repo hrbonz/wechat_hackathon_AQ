@@ -2,12 +2,11 @@
 
   <view class="city-container">
     <text class='city-text'>you're currently breathing in...</text>
-    <text class='city-name'>Shanghai</text> 
-    <!-- <text class='h1'>{{ main.city }}</text> -->
+    <text class='city-name'>{{location.en}}</text> 
   </view>
 
   <view class='aqi-container'>
-    <text class='aqi'>300</text> 
+    <text class='aqi'>{{aqi.pm25}}</text> 
     <text class='aqi-unit'>μg/m³</text>
   </view>
 

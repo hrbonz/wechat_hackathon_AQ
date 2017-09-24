@@ -10,11 +10,11 @@ view, text, image, button {
 
 /* City Headline */
 .city-container {
+  text-align: center;
   margin: 25px auto 0 auto;
   display: flex;
   flex-direction: column;
   width: 100%;
-  text-align: left;
   font-family: sans-serif;
   line-height: 1.25;
 }
@@ -86,8 +86,8 @@ view, text, image, button {
   background: red;
   color: white;
   border-radius: 100px;
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   text-align: center;
   font-weight: 700;
   font-size: 20px;
@@ -101,6 +101,4 @@ view, text, image, button {
   background: white;
   color: green;
   margin-top: 15px;
-  
-
 }
