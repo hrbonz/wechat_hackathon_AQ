@@ -2,6 +2,7 @@
 from flask import Flask
 
 from api.rediswrapper import redis
+from api.utils import url_for_init
 
 __author__ = 'Stefan Berder <stefan@measureofquality.com>'
 __contact__ = 'code+mask@measureofquality.com'
@@ -15,6 +16,7 @@ app.config.from_object('config')
 #app.config['TRAP_HTTP_EXCEPTIONS'] = True
 
 redis.init_app(app)
+url_for_init(app)
 
 # import views
 from api.geo import geo_bp

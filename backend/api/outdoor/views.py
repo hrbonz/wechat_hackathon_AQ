@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-from flask import Blueprint, jsonify, request, abort, url_for, json,\
+from flask import Blueprint, jsonify, request, abort, json,\
                   current_app
 import requests
 
 from api.geoutils import get_city, get_closest, hash2tag
 from api.rediswrapper import redis
+from api.utils import url_for
 
 
 outdoor_bp = Blueprint("outdoor", __name__)
