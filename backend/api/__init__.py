@@ -16,7 +16,7 @@ app.config.from_object('config')
 #app.config['TRAP_HTTP_EXCEPTIONS'] = True
 
 redis.init_app(app)
-url_for_init(app)
+#url_for_init(app)
 
 # import views
 from api.geo import geo_bp
