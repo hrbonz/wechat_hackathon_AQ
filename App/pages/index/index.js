@@ -116,7 +116,12 @@ Page({
   },
   onHide: function() {
     this.setData({
-      maskState: 'mask-off'
+      maskState: 'mask-off',
+      backgroundColor: backgroundColor,
+      borderColor: borderColor,
+      aqi: currentAqi,
+      location: currentLocation,
+      backgroundPercent: backgroundPercent
     });
   },
   listenerBtnGetLocation: function () {
