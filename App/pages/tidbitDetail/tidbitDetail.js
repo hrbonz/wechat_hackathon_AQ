@@ -57,16 +57,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
-    console.log(this);
+    // SET PAGE TITLE
     wx.setNavigationBarTitle({ title: 'Detail' });
-    var id = JSON.parse(options.id);
-
-    for (var i=0; i<this.data.tidbits.length; i++){
-      if (this.data.tidbits[i].id == id) {
-        this.setData({tidbit : this.data.tidbits[i]});
+    // GET TIDBIT DETAIL FROM LAST PAGE
+    var id = options.id;
+    console.log("tidbit Detail :" + id);
+    var ctx = this;
+    this.data.tidbits.forEach(function(t){
+      if(t.id == id){
+        ctx.setData(
+          { 
+            tidbit: t 
+          }
+          );
       }
-    }
+    });
+    // for (var i=0; i<this.data.tidbits.length; i++){
+    //   if (this.data.tidbits[i].id == id) {
+    //     this.setData({tidbit : this.data.tidbits[i]});
+    //   }
+    // }
     
   },
 
