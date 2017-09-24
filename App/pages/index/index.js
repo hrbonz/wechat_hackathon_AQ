@@ -2,7 +2,7 @@
 //获取应用实例
 const app = getApp()
 
-var borderColor, backgroundColor, currentLocation, currentAqi, couldbeAqi;
+var borderColor, backgroundColor, currentLocation, currentAqi, couldbeAqi, backgroundPercent;
 
 Page({
   data: {
@@ -25,7 +25,8 @@ Page({
     },
     maskState: 'mask-off',
     backgroundColor: '#999999',
-    borderColor: '#999999'
+    borderColor: '#999999',
+    backgroundPercent: '0'
   },
   openTidbits: function (e) {
     wx.navigateTo({
@@ -47,7 +48,8 @@ Page({
         backgroundColor: '#8cebfc',
         borderColor: 'greenyellow',
         aqi: couldbeAqi,
-        couldBeCity: 'Honolulu'
+        couldBeCity: 'Honolulu',
+        backgroundPercent: '0'
       });
     } else {
       this.setData({
@@ -55,7 +57,8 @@ Page({
         backgroundColor: backgroundColor,
         borderColor: borderColor,
         aqi: currentAqi,
-        location: currentLocation
+        location: currentLocation,
+        backgroundPercent: backgroundPercent
       });
     }
   },
@@ -249,10 +252,19 @@ Page({
         else if (aqi < 251) borderColor = 'purple';
         else borderColor = 'maroon';
 
-        if (aqi < 15.4) backgroundColor = '#8cebfc';
-        else if (aqi < 35) backgroundColor = '#93d8e4';
-        else if (aqi < 100) backgroundColor = '#b4ced3';
-        else backgroundColor = '#d4d4d4';
+        if (aqi < 15.4) {
+          backgroundColor = '#8cebfc';
+          backgroundPercent = '0';
+        } else if (aqi < 35) {
+          backgroundColor = '#93d8e4';
+          backgroundPercent = '10';
+        } else if (aqi < 100) {
+          backgroundColor = '#b4ced3';
+          backgroundPercent = '40';
+        } else {
+          backgroundColor = '#d4d4d4';
+          backgroundPercent = '50';
+        }
 
         couldbeAqi = {
           pm25: Math.round( res.data.fields.pm25 * 0.1 )
@@ -261,7 +273,8 @@ Page({
         ctx.setData({
           aqi: res.data.fields,
           borderColor: borderColor,
-          backgroundColor: backgroundColor
+          backgroundColor: backgroundColor,
+          backgroundPercent: backgroundPercent
         })
         wx.hideLoading();
       },
