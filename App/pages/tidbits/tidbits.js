@@ -8,39 +8,39 @@ Page({
     tidbits: [
       {
         id :1,
-        question: 'WHAT DOES MY MASK DO?',
+        question: 'What does my mask do?',
       },
       {
         id: 2,
-        question: 'WHY SHOULD I WEAR A MASK?',
+        question: 'Why should I wear a mask?',
       },
       {
         id: 3,
-        question: 'WHAT IS PARTICULATE MATTER?',
+        question: 'What is particulate matter?',
       },
       {
         id: 4,
-        question: 'WHAT DO THESE WORDS MEAN ARGH?!?',
+        question: 'What do these words mean argh?!?',
       },
       {
         id: 5,
-        question: 'WHAT\'S SO BAD ABOUT AQI?',
+        question: 'What\'s so bad about AQI?',
       },
       {
         id: 6,
-        question: 'BEWARE OF FAKE MASKS',
+        question: 'Beware of fake masks?',
       },
       {
         id: 7,
-        question: 'PROPER MASK USAGE'
+        question: 'Proper mask usage'
       },
       {
         id: 8,
-        question: 'HEALTH EFFECTS'
+        question: 'Health effects'
       },
       {
         id: 9,
-        question: 'FOR THE NERDS (REFERENCES YAY!)',
+        question: 'For the nerds (references yay!)',
       },
     ]
   },

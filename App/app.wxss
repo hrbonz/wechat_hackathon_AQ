@@ -1,8 +1,12 @@
 /**app.wxss**/
 @import "style/weui.wxss";
 
+
+/*box means element. when calculating the size of element, what is included. border-box means the border is included and ecverything within. padding-box means the padding is included, but not the border  */
 view, text, image, button {
   box-sizing: border-box;
 }
+
+
 
 

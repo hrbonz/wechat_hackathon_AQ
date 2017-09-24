@@ -2,25 +2,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 5%;
   background-color: white;
   text-align: center;
-  min-height: 100px;
-  min-width: 260px;
-  max-width: 100%;
-  padding-top: 0%;
-  padding-bottom: 0%;
+  padding-top: 3%;
+  padding-bottom: 3%;
   padding-left: 5%;
   padding-right: 5%;
-  border-radius: 7px;
-  border-bottom: solid 3px blueviolet;
-  border-right: solid 3px blueviolet;
+  border-radius: 50px;
+  min-height: 80px;
+  /* border-bottom: solid 3px blueviolet;
+  border-right: solid 3px blueviolet; */
+  font-weight: 300;
 }
 
 .main-view {
-  background-color: #8cebfc;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -28,3 +23,32 @@
   padding-bottom: 5%;
 
 }
+
+.tidbit-item{
+  padding: 7% 5% 0 5% ;
+  min-height: 80px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.backdrop {
+  position: fixed;
+  z-index: -1;
+  /* background: #d8a272; */
+  background: #8cebfc;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  transition: background 1s ease;
+}
+.backdrop .gradient-shade {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 40%;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient( to top, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.9) 20%,rgba(255,255,255,0.8) 20%,rgba(255,255,255,0.8) 40%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.4) 60%,rgba(255,255,255,0.4) 80%, rgba(255,255,255,0.2) 80%, rgba(255,255,255,0.2) 100%);
+}
+
