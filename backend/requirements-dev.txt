@@ -4,15 +4,16 @@
 #
 #    pip-compile --output-file requirements-dev.txt requirements-dev.in
 #
---index-url https://pypi.priv.measureofquality.com/gams/prod/+simple/
-
 bumpr==0.2.1
 certifi==2017.7.27.1      # via requests
 chardet==3.0.4            # via requests
-click==6.7                # via flask, pip-tools
+click==6.7                # via flask, geocoder, pip-tools
+decorator==4.1.2          # via ratelim
 docutils==0.14            # via geohash
 first==2.0.1              # via pip-tools
 flask==0.12.2
+future==0.16.0
+geocoder==1.32.1
 geohash==1.0
 geopy==1.11.0
 gunicorn==19.7.1
@@ -24,8 +25,9 @@ markupsafe==1.0           # via jinja2
 pip-tools==1.9.0
 pygments==2.2.0           # via httpie
 pytz==2017.2
+ratelim==0.1.6            # via geocoder
 redis==2.10.6
 requests==2.18.4
-six==1.11.0               # via pip-tools
+six==1.11.0               # via geocoder, pip-tools
 urllib3==1.22             # via requests
 werkzeug==0.12.2          # via flask
