@@ -1,4 +1,5 @@
-<view class='container'>
-      <text class="question">{{tidbit.question}}</text>
-      <text class="answer">{{tidbit.anwer}}</text>
+
+<view class="tidbit-container">
+    <text id='{{item.id}}' class="button-style">{{tidbit.question}}</text>
+    <text id='{{item.id}}' class="button-style">{{tidbit.answer}}</text>
 </view>

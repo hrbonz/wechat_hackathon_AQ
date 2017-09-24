@@ -21,7 +21,9 @@
   <view class='mask-button' bindtap='putOnMask'>{{buttonText}}</view>
   <view class='tidbits' bindtap='openTidbits'>i</view>
 
-  <view class="backdrop" style="background:{{ backgroundColor }};"><view class="gradient-shade"></view></view>
+  <view class="backdrop" style="background:{{ backgroundColor }};">
+    <view class="gradient-shade"></view>
+  </view>
   <view class="city-scape">
     
   </view>

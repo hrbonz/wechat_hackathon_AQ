@@ -1,20 +1,29 @@
-.cell{
-  margin-bottom: 15px;
+.button-style {
   display: flex;
-  flex-direction: column;
-  background: whitesmoke;
-  padding: 6px;
-  height: 80px;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  background-color: white;
+  text-align: center;
+  min-height: 100px;
+  min-width: 260px;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-radius: 7px;
+  border-bottom: solid 3px blueviolet;
+  border-right: solid 3px blueviolet;
 }
 
+.main-view {
+  background-color: #8cebfc;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-bottom: 5%;
 
-.question {
-  padding: 5px;
-  font-size: 20px;
-  color: black;
-  align-items: top;
-  font-weight: 700;
-  text-align: center;
 }
