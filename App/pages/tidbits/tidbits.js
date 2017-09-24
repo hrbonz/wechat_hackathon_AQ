@@ -10,26 +10,23 @@ Page({
   /**
    * TAKES THE APP TO TIDBIT DETAIL PAGE
    */
-  goToDetailPage : function(e){
+  goToDetailPage: function (e) {
     console.log("tidbit  :" + e.target.id);
-    var tidbit = {};
-    this.data.tidbits.forEach(function(t){
-      if(t.id == e.target.id){
-        tidbit = t;
-      }
-    });
     wx.navigateTo({
       url: '../tidbitDetail/tidbitDetail?id=' + e.target.id,
     })
   },
+
   getTidbits: function () {
     var url = 'https://mask.measureofquality.com/tidbits';
-    var ctx : this;
+    console.log("calling tibits list api = " +  url);
+    var ctx = this;
     wx.request({
       url: url,
       success: function (res) {
+        console.log(res);
         ctx.setData({
-          tidbits: res
+          tidbits: res.data
         });
       },
       fail: function (err) {

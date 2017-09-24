@@ -1,17 +1,44 @@
-<view class='main-container container'>
+<view class="main-container {{ maskState }}">
 
   <view class="city-container">
-    <text class='city-text'>you're currently breathing in...</text>
-    <text class='city-name'>{{location.en}}</text> 
+    <view class="city-text">
+      <view class="tagline-text">
+        <text class='text-currently'>you're currently breathing in...</text>
+        <text class='text-couldbe'>you could be breathing...</text>
+      </view>
+      <view class="headline-text">
+        <text class="city-currently">{{ location.en }}</text>
+        <text class="city-couldbe">{{ couldBeCity }}</text>
+      </view>
+    </view>
   </view>
 
   <view class='aqi-container'>
-    <text class='aqi'>{{aqi.pm25}}</text> 
+    <text class='aqi'>{{aqi.pm25}}</text>
     <text class='aqi-unit'>μg/m³</text>
   </view>
 
-  <button class='{{buttonclass}}' bindtap='buttonClicked'>{{buttonText}}</button>
+  <view class="tidbit-panel">
+    <view class="button-style" bindtap="openTidbits">
+      <text class="question">Are you going to die?</text>
+    </view>
+  </view>
+  <view class="mask-button" bindtap="putOnMask">
+    <image src="../../assets/images/mask-icon.png" />
+  </view>
 
-  <button class='tidbits' bindtap='tidbitsClicked'>Tidbits</button>
+  <view class="tidbits-btn" bindtap="openTidbits">i</view>
 
+  <view class="backdrop" style="background:{{ backgroundColor }};">
+    <view class="gradient-shade"></view>
+  </view>
+  <view class="cityscape">
+    <image class="city-center" src="{{ '../../assets/images/Shanghai_center.png' }}" />
+    <image class="city-left" src="{{ '../../assets/images/Shanghai_left.png' }}" />
+    <image class="city-right" src="{{ '../../assets/images/Shanghai_right.png' }}" />
+
+    <image class="couldbe-center" src="{{ '../../assets/images/' + couldBeCity + '_center.png' }}" />
+    <image class="couldbe-left" src="{{ '../../assets/images/' + couldBeCity + '_left.png' }}" />
+    <image class="couldbe-right" src="{{ '../../assets/images/' + couldBeCity + '_right.png' }}" />
+  </view>
 </view>

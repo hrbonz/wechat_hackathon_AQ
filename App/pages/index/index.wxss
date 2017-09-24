@@ -8,43 +8,99 @@ view, text, image, button {
 
 /* -------- */
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  overflow: hidden;
+}
+
 /* City Headline */
 .city-container {
-  text-align: center;
-  margin: 25px auto 0 auto;
+  margin: 0 0 10px 0;
   display: flex;
   flex-direction: column;
   width: 100%;
   font-family: sans-serif;
   line-height: 1.25;
 }
-
-.city-text, .city-name {
-  margin: 0;
-}
 .city-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.tagline-text, .headline-text {
+  position: relative;
+}
+.tagline-text {
+  height: 20px;
+}
+.headline-text {
+  height: 50px;
+}
+
+.text-couldbe, .city-couldbe {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.text-currently, .city-currently {
+   position: relative;
+   display: block;
+}
+
+.text-currently,
+.text-couldbe {
   font-size: 16px;
   font-weight: 300;
   font-style: italic;
 }
-.city-name {
-  font-size: 58px;
+
+.mask-on .text-currently, 
+.mask-off .text-couldbe {
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.mask-on .text-couldbe, 
+.mask-off .text-currently {
+  opacity: 1;
+  transition: opacity .3s ease .2s;
+}
+
+.city-currently,
+.city-couldbe {
+  font-size: 50px;
   font-weight: 300;
   font-style: italic;
   line-height: 1;
+  transition: transform .4s ease;
 }
 
+.mask-off .city-currently,
+.mask-on .city-couldbe {
+  transform: translateX(0);
+}
+.mask-on .city-currently {
+  transform: translateX( -200% );
+}
+.mask-off .city-couldbe {
+  transform: translateX( 200% );
+}
 
-  .aqi-container { 
-  margin: 20px 0;
+.aqi-container {
+  margin: 0 0 15px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   border: solid 2px #ff5a5a;
   padding: 20px;
-  height: 125px;
-  width: 125px;
+  height: 144px;
+  width: 140px;
   border-radius: 50%;
 }
 
@@ -57,10 +113,10 @@ view, text, image, button {
 .aqi-unit {
   font-weight: 300;
   font-size: 15px;
-  color: #787979;
+  color: #666;
 }
 
-.mask-button{
+.mask-button {
   display: flex;
   align-items: center; 
   justify-content: center;
@@ -68,37 +124,160 @@ view, text, image, button {
   background: #ff5a5a;
   color: white;
   border-radius: 100px;
-  height: 125px;
-  width: 125px;
+  height: 140px;
+  width: 140px;
   text-align: center;
-  font-weight: 700;
-  font-size: 20px;
-  font-family: sans-serif;
+  box-shadow: 4px 4px 0px 0px #c32035;
+  transition: all .2s ease; 
+}
+.mask-button image {
+  height: 140px;
+  width: 140px;
+  padding: 25px 22px 25px 28px;
+}
+.mask-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #c32035;
 }
 
-.mask-button-red{
-  border-color: red;
-  border-width: 2px;
-  display: flex;
-  align-items: center; 
-  justify-content: center;
-  margin-top: 100px;
-  background: red;
-  color: white;
-  border-radius: 100px;
-  height: 150px;
-  width: 150px;
-  text-align: center;
-  font-weight: 700;
-  font-size: 20px;
+.mask-on .mask-button {
+  transition: all .3s ease;
+  transform: translateY( 400px );
 }
 
-.tidbits{
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 5px;
+.tidbit-panel {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.tidbit-panel .button-style {
+  position: absolute;
+  bottom: 110px;
+  background-color: white;
+  border: 1px solid #666;
+  text-align: center;
+  line-height: 80px;
+  padding: 3% 5%;
+  border-radius: 35px;
+  min-height: 80px;
+  font-weight: 500;
+  width: 100%;
+  transition: transform .3s ease .4s;
+}
+
+ .mask-on .tidbit-panel {
+  z-index: 0;
+} 
+.mask-off .tidbit-panel .button-style {
+  transform: translateY(300px);
+}
+
+.tidbits-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  border: solid 2px #fff;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  transition: all .2s ease;
+  background: rgba(0,0,0,0.15);
+}
+.tipbits-btn:active {
+  background: #000;
+  color: #fff;
+}
+
+.backdrop {
+  position: absolute;
+  z-index: -3;
+  background: #d8a272;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  transition: background 1s ease;
+}
+.backdrop .gradient-shade {
+  position: absolute;
+  z-index: -3;
+  left: 0;
+  top: 110px;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient( to top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 52%,rgba(255,255,255,0.8) 52%,rgba(255,255,255,0.8) 64%, rgba(255,255,255,0.6) 64%, rgba(255,255,255,0.6) 76%, rgba(255,255,255,0.4) 76%,rgba(255,255,255,0.4) 88%, rgba(255,255,255,0.2) 88%, rgba(255,255,255,0.2) 100%);
+}
+
+.cityscape {
+  position: absolute;
+  z-index: -2;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.city-center, .city-left, .city-right,
+.couldbe-center, .couldbe-left, .couldbe-right {
+  display: block;
+  position: absolute;
+}
+
+.city-center,
+.couldbe-center {
+  left: 0;
+  bottom: 0;
+  max-height: 75px;
+  min-width: 100%;
+}
+
+.city-left, .city-right,
+.couldbe-left, .couldbe-right {
+  height: 400px;
   width: 200px;
-  background: white;
-  color: green;
-  margin-top: 15px;
+  bottom: -5px;
+}
+.city-left,
+.couldbe-left {
+  left: -10px;
+}
+.city-right,
+.couldbe-right {
+  right: -10px;
+}
+
+.mask-off .city-center, .mask-off .city-left, .mask-off .city-right,
+.mask-on .couldbe-center, .mask-on .couldbe-left, .mask-on .couldbe-right {
+  transform: translate( 0, 0 );
+  transition: transform .3s ease .2s;
+}
+
+.mask-on .city-center, .mask-off .couldbe-center {
+  transform: translate( 0, 200px );
+  transition: transform .3s ease;
+}
+
+.mask-on .city-left, .mask-on .city-right {
+  transform: translate( 0, 500px );
+  transition: transform .3s ease;
+}
+
+.mask-off .couldbe-left {
+  transform: translate( -300px, 0 );
+  transition: transform .3s ease;
+}
+.mask-off .couldbe-right {
+  transform: translate( 300px, 0 );
+  transition: transform .3s ease;
 }

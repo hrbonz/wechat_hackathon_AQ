@@ -1,10 +1,10 @@
 <view class='main-view' >
 
-  <view wx:for="{{tidbits}}">
-    <view class='button-style' bindtap='goToDetailPage'>
+  <view wx:for="{{tidbits}}" class='tidbit-item'>
+    <view id='{{item.id}}' class='button-style' bindtap='goToDetailPage'>
       <text  id='{{item.id}}'  class="question">{{item.question}}</text>
     </view>     
   </view> 
 
-
+<view class="backdrop" style="background:{{ backgroundColor }};"><view class="gradient-shade"></view></view>
 </view>

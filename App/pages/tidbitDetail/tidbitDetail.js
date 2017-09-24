@@ -3,8 +3,10 @@ Page({
   data: {
     tidbit: {},
   },
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function (options) {
-    this.geteTidbitDetail();
     // SET PAGE TITLE
     wx.setNavigationBarTitle({ title: 'Detail' });
     // GET TIDBIT DETAIL FROM LAST PAGE
@@ -15,12 +17,12 @@ Page({
   },
   geteTidbitDetail: function (id) {
     var url = 'https://mask.measureofquality.com/tidbits/'+id;
-    var ctx: this;
+    var ctx = this;
     wx.request({
       url: url,
       success: function (res) {
         ctx.setData({
-          tidbit: res
+          tidbit: res.data
         });
       },
       fail: function (err) {
