@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
 
+from api.rediswrapper import redis
+
 __author__ = 'Stefan Berder <stefan@measureofquality.com>'
 __contact__ = 'code+mask@measureofquality.com'
 __version__ = "0.0.2"

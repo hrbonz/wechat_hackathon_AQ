@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, url_for
 from random import randint
 
 from api.rediswrapper import redis
@@ -19,6 +19,7 @@ def tidbits_all():
     for tidbit in redis.lrange("tidbits", 0, -1):
     	t = json.loads(tidbit)
     	t["id"] = index
+    	t["tidbits_uri"] = url_for(".tidbits_id", id=index)
     	index += 1
     	payload.append(t)
     return jsonify(payload), 200
