@@ -35,7 +35,7 @@
   <view class="backdrop" style="background:{{ backgroundColor }};">
     <view class="gradient-shade"></view>
   </view>
-  <view class="cityscape">
+  <view class="cityscape" style="filter: grayscale({{ backgroundPercent + '%' }});">
     <image class="city-center" src="{{ '../../assets/images/Shanghai_center.png' }}" />
     <image class="city-left" src="{{ '../../assets/images/Shanghai_left.png' }}" />
     <image class="city-right" src="{{ '../../assets/images/Shanghai_right.png' }}" />
