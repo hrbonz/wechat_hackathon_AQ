@@ -5,29 +5,64 @@
 #    pip-compile --output-file requirements-dev.txt requirements-dev.in
 #
 bumpr==0.2.1
-certifi==2017.7.27.1      # via requests
-chardet==3.0.4            # via requests
-click==6.7                # via flask, geocoder, pip-tools
-decorator==4.1.2          # via ratelim
-docutils==0.14            # via geohash
-first==2.0.1              # via pip-tools
+    # via -r requirements-dev.in
+certifi==2017.7.27.1
+    # via requests
+chardet==3.0.4
+    # via requests
+click==6.7
+    # via
+    #   flask
+    #   geocoder
+    #   pip-tools
+decorator==4.1.2
+    # via ratelim
+docutils==0.14
+    # via geohash
+first==2.0.1
+    # via pip-tools
 flask==0.12.2
+    # via -r requirements.in
 future==0.16.0
+    # via -r requirements.in
 geocoder==1.32.1
+    # via -r requirements.in
 geohash==1.0
+    # via -r requirements.in
 geopy==1.11.0
+    # via -r requirements.in
 gunicorn==19.7.1
+    # via -r requirements.in
 httpie==0.9.9
-idna==2.6                 # via requests
-itsdangerous==0.24        # via flask
-jinja2==2.9.6             # via flask
-markupsafe==1.0           # via jinja2
+    # via -r requirements-dev.in
+idna==2.6
+    # via requests
+itsdangerous==0.24
+    # via flask
+jinja2==2.11.3
+    # via flask
+markupsafe==1.0
+    # via jinja2
 pip-tools==1.9.0
-pygments==2.2.0           # via httpie
+    # via -r requirements-dev.in
+pygments==2.2.0
+    # via httpie
 pytz==2017.2
-ratelim==0.1.6            # via geocoder
+    # via -r requirements.in
+ratelim==0.1.6
+    # via geocoder
 redis==2.10.6
+    # via -r requirements.in
 requests==2.18.4
-six==1.11.0               # via geocoder, pip-tools
-urllib3==1.22             # via requests
-werkzeug==0.12.2          # via flask
+    # via
+    #   -r requirements.in
+    #   geocoder
+    #   httpie
+six==1.11.0
+    # via
+    #   geocoder
+    #   pip-tools
+urllib3==1.22
+    # via requests
+werkzeug==0.12.2
+    # via flask
